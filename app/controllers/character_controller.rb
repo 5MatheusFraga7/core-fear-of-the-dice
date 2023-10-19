@@ -36,8 +36,19 @@ class CharacterController < ApplicationController
       data = Character.joins("JOIN races on (race_id = races.id)")
                       .joins("JOIN character_classes on (class_id = character_classes.id)")
                       .where(id: params[:id])
-                      .select("races.name as race, characters.name, characters.id, character_classes.name as className")
-      format.json { render json: { status: 'success', character_class: data }, status: 200 }
+                      .select("characters.id, races.name as race, 
+                        character_classes.name as character_class, 
+                        characters.name as name,
+                        level,
+                        health_points,
+                        charism,
+                        inteligence,
+                        wisdom,
+                        constituition,
+                        dezterity,
+                        strength")
+
+      format.json { render json: { status: 'success', character: data }, status: 200 }
     end
   end
 
