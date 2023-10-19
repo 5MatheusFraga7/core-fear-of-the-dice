@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/characters'           , to: 'character#read', defaults: { format: 'json' }
+  get '/show_character'       , to: 'character#show', defaults: { format: 'json' }
   post '/characters/create'   , to: 'character#create', defaults: { format: 'json' }
   put '/characters/update'    , to: 'character#update', defaults: { format: 'json' }
   delete '/characters/delete' , to: 'character#delete', defaults: { format: 'json' }
