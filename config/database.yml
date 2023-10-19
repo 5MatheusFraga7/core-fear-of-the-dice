@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 10
+  username: postgres
+  password: 1q2w3e
+  host: 0.0.0.0
+  port: 5432
+  reconnect: true
+  database: fear_of_the_dice
+
+localization: # Read-Write database
+  <<: *default
+
+read_only: # Read-Only database
+  <<: *default
+
+production:
+  <<: *default
+
+development:
+  <<: *default
